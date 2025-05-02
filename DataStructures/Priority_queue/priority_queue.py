@@ -28,8 +28,13 @@ def insert():
     return 
 
 def remove(heap):
+    rta = []
     coger = heap["elements"]["elements"][1]
     heap["elements"]["elements"][1] = heap["elements"]["elements"][heap["size"]]
+    heap["elements"]["elements"][heap["size"]] = coger
+    del coger 
+    heap["size"] -= 1
+    return rta 
     
 
 def swim(heap,pos):
