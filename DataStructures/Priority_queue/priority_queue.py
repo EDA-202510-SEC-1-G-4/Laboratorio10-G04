@@ -6,7 +6,9 @@ from DataStructures.Map import
 def new_heap(is_min_pq=True):
     heap = {'elements':al.new_list(),
             'size':0,
-            'cmp_function':is_min_pq}
+            'cmp_function':default_compare_lower_value}
+    if is_min_pq == False:
+        heap['cmp_function'] = default_compare_higher_value
     return heap
 
 def size():
