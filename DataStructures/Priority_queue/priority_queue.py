@@ -3,11 +3,8 @@ from DataStructures.Map import
 from DataStructures.Map import 
 from DataStructures.Map import 
 
-lista = al.new_list()
-lista = al.insert(lista,None)
-
 def new_heap(is_min_pq=True):
-    heap = {'elements':lista,
+    heap = {'elements':al.new_list(),
             'size':0,
             'cmp_function':default_compare_lower_value}
     if is_min_pq == False:
@@ -18,6 +15,7 @@ def size(pq):
     return pq["size"]
 
 def is_empty(pq):
+    
     return pq["size"] == 0
 
 def get_first_priority(heap):
@@ -26,25 +24,16 @@ def get_first_priority(heap):
         first = heap['elements']['elements'][1]['value']
     return first
 
-def insert(heap,value,key):
-    if heap != None:
-        elem = {'key':key,
-                'value':value}
-        al.insert(heap['elements'],elem) 
+def insert(): 
     return 
 
-def remove():
-    return
+def remove(heap):
+    coger = heap["elements"]["elements"][1]
+    heap["elements"]["elements"][1] = heap["elements"]["elements"][heap["size"]]
+    
 
 def swim(heap,pos):
-    if heap['size'] > 0:
-        cmp_function = heap['cmp_function']
-        elem = heap['elements']['elements'][pos]
-        padre = heap['elements']['elements'][pos//2]
-        if cmp_function(padre,elem):
-            heap['elements']['elements'][pos//2] = elem
-            heap['elements']['elements'][pos] = padre
-    return heap
+    return 
 
 def sink():
     return 
