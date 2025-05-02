@@ -24,7 +24,12 @@ def get_first_priority(heap):
         first = heap['elements']['elements'][1]['value']
     return first
 
-def insert(): 
+def insert(heap,value,key):
+    if heap != None:
+        elem = {'key':key,
+                'value':value}
+        al.insert(heap['elements'],elem)
+     
     return 
 
 def remove(heap):
