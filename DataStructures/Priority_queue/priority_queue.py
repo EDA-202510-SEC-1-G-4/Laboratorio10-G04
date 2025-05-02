@@ -30,7 +30,14 @@ def remove():
     return
 
 def swim(heap,pos):
-    return 
+    if heap['size'] > 0:
+        cmp_function = heap['cmp_function']
+        elem = heap['elements']['elements'][pos]
+        padre = heap['elements']['elements'][pos//2]
+        if not cmp_function(padre,elem):
+            heap['elements']['elements'][pos//2] = elem
+            heap['elements']['elements'][pos] = padre
+    return heap
 
 def sink():
     return 
