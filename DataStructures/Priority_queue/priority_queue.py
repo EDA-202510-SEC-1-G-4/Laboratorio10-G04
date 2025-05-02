@@ -32,10 +32,8 @@ def insert(heap,value,key):
         heap = swim(heap,pos)
     return heap
 
-def remove(heap):
-    coger = heap["elements"]["elements"][1]
-    heap["elements"]["elements"][1] = heap["elements"]["elements"][heap["size"]]
-    
+def remove():
+    return
 
 def swim(heap,pos):
     if heap['size'] > 0:
@@ -54,7 +52,22 @@ def swim(heap,pos):
                 stop = True
     return heap
 
-def sink():
+def sink(pq,pos):
+    array = pq['elements']['elements']
+    boole = array[2*pos+1]['key'] < array[2*pos]['key']
+    menor = array[2*pos]['key']
+    if boole:
+        menor = array[2*pos+1]['key']
+
+    while array[pos]['key'] < menor:
+        if array[pos] < menor:
+            
+        else:
+            pos = 2*pos+2
+     
+
+
+
     return 
 
 def default_compare_higher_value():
