@@ -28,7 +28,7 @@ def insert(heap,value,key):
     if heap != None:
         elem = {'key':key,
                 'value':value}
-        al.insert(heap['elements'],elem)
+        al.insert(heap['elements'],elem)     
      
     return 
 
