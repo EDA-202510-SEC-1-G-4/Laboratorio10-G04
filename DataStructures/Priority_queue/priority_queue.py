@@ -11,11 +11,11 @@ def new_heap(is_min_pq=True):
         heap['cmp_function'] = default_compare_higher_value
     return heap
 
-def size():
-    return
+def size(pq):
+    return pq["size"]
 
-def is_empty():
-    return 
+def is_empty(pq):
+    return pq["size"] == 0
 
 def get_first_priority(heap):
     first = None
