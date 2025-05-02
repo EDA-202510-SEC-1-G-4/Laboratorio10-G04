@@ -7,7 +7,7 @@ def new_heap(is_min_pq=True):
     heap = {'elements':al.new_list(),
             'size':0,
             'cmp_function':is_min_pq}
-    return
+    return heap
 
 def size():
     return
