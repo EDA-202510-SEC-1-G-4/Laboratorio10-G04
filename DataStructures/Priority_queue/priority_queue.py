@@ -15,8 +15,11 @@ def size():
 def is_empty():
     return 
 
-def get_first_priority():
-    return 
+def get_first_priority(heap):
+    first = None
+    if heap['size'] > 0:
+        first = heap['elements']['elements'][1]['value']
+    return first
 
 def insert(): 
     return 
