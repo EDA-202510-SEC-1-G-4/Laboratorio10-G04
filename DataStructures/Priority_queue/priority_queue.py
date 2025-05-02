@@ -3,8 +3,11 @@ from DataStructures.Map import
 from DataStructures.Map import 
 from DataStructures.Map import 
 
+lista = al.new_list()
+lista = al.insert(lista,None)
+
 def new_heap(is_min_pq=True):
-    heap = {'elements':al.new_list(),
+    heap = {'elements':lista,
             'size':0,
             'cmp_function':default_compare_lower_value}
     if is_min_pq == False:
@@ -23,7 +26,11 @@ def get_first_priority(heap):
         first = heap['elements']['elements'][1]['value']
     return first
 
-def insert(): 
+def insert(heap,value,key):
+    if heap != None:
+        elem = {'key':key,
+                'value':value}
+        al.insert(heap['elements'],elem) 
     return 
 
 def remove():
@@ -34,7 +41,7 @@ def swim(heap,pos):
         cmp_function = heap['cmp_function']
         elem = heap['elements']['elements'][pos]
         padre = heap['elements']['elements'][pos//2]
-        if not cmp_function(padre,elem):
+        if cmp_function(padre,elem):
             heap['elements']['elements'][pos//2] = elem
             heap['elements']['elements'][pos] = padre
     return heap
