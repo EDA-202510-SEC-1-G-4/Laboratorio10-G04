@@ -15,7 +15,6 @@ def size(pq):
     return pq["size"]
 
 def is_empty(pq):
-    
     return pq["size"] == 0
 
 def get_first_priority(heap):
@@ -24,28 +23,32 @@ def get_first_priority(heap):
         first = heap['elements']['elements'][1]['value']
     return first
 
-def insert(heap,value,key):
-    if heap != None:
-        elem = {'key':key,
-                'value':value}
-        al.insert(heap['elements'],elem)
-     
+def insert(pq,value,key): 
+
     return 
 
-def remove(heap):
-    rta = []
-    coger = heap["elements"]["elements"][1]
-    heap["elements"]["elements"][1] = heap["elements"]["elements"][heap["size"]]
-    heap["elements"]["elements"][heap["size"]] = coger
-    del coger 
-    heap["size"] -= 1
-    return rta 
-    
+def remove():
+    return
 
 def swim(heap,pos):
     return 
 
-def sink():
+def sink(pq,pos):
+    array = pq['elements']['elements']
+    boole = array[2*pos+1]['key'] < array[2*pos]['key']
+    menor = array[2*pos]['key']
+    if boole:
+        menor = array[2*pos+1]['key']
+
+    while array[pos]['key'] < menor:
+        if array[pos] < menor:
+            
+        else:
+            pos = 2*pos+2
+     
+
+
+
     return 
 
 def default_compare_higher_value():
