@@ -52,38 +52,41 @@ def swim(heap,pos):
                 stop = True
     return heap
 
+def mayor_prioridad(heap,nodo1,nodo2):
+    func_comp = heap["cmp_function"]
+    if func_comp(nodo1,nodo2):
+        return nodo1
+    else:
+        return nodo2
+    
+def es_hoja(pos,heap):
+    if 2*pos > heap["size"] and (2*pos)+1 > heap["size"]:
+        return True
+    return False
 
+def tiene_hijo(pos,heap):
+    if 2*pos < heap["size"] or (2*pos)+1 < heap["size"]:
+        return True
+    return False
 
 def sink(heap,pos):
     if not is_empty(heap):
         func_comp = heap["cmp_function"]
         
-        padre = heap["elements"]["elements"][(pos)]
-        hijo1 = heap["elements"]["elements"][(2*pos)]
-        hijo2 = heap["elements"]["elements"][(2*pos)+1]
-        if func_comp(padre,hijo2) or func_comp(padre,hijo2):
-            hijo_comp = 
+        while func_comp(padre,hijo1) or func_comp(padre,hijo2) and tiene_hijo(pos,heap):
+            
+                hijo = mayor_prioridad(hijo1,hijo2)
+                temp = padre
+                padre = hijo
+                hijo = temp
+                if hijo == hijo1:
+                    pos *=2
+                elif hijo == hijo2:
+                    pos = (2*pos) + 1
+            
 
     
 
-
-def sink(pq,pos):
-    array = pq['elements']['elements']
-    boole = array[2*pos+1]['key'] < array[2*pos]['key']
-    menor = array[2*pos]['key']
-    if boole:
-        menor = array[2*pos+1]['key']
-
-    while array[pos]['key'] < menor:
-        if array[pos] < menor:
-            
-        else:
-            pos = 2*pos+2
-     
-
-
-
-    return 
 
 def default_compare_higher_value(father_node, child_node,retorno=False):
     if pqe.get_key(father_node) >= pqe.get_key(child_node):
