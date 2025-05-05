@@ -1,7 +1,4 @@
 from DataStructures.List import array_list as al
-from DataStructures.Map import
-from DataStructures.Map import 
-from DataStructures.Map import 
 
 def new_heap(is_min_pq=True):
     heap = {'elements':al.new_list(),
