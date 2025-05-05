@@ -45,8 +45,6 @@ def remove(heap):
         retorno = None
     return retorno
 
-
-
 def swim(heap,pos):
     if heap['size'] > 0:
         stop = False
