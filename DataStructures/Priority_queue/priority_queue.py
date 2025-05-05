@@ -1,4 +1,6 @@
 from DataStructures.List import array_list as al
+
+from DataStructures.Priority_queue import index_pq_entry as pqe
 from DataStructures.Map import
 from DataStructures.Map import 
 from DataStructures.Map import 
@@ -50,6 +52,21 @@ def swim(heap,pos):
                 stop = True
     return heap
 
+
+
+def sink(heap,pos):
+    if not is_empty(heap):
+        func_comp = heap["cmp_function"]
+        
+        padre = heap["elements"]["elements"][(pos)]
+        hijo1 = heap["elements"]["elements"][(2*pos)]
+        hijo2 = heap["elements"]["elements"][(2*pos)+1]
+        if func_comp(padre,hijo2) or func_comp(padre,hijo2):
+            hijo_comp = 
+
+    
+
+
 def sink(pq,pos):
     array = pq['elements']['elements']
     boole = array[2*pos+1]['key'] < array[2*pos]['key']
@@ -68,8 +85,13 @@ def sink(pq,pos):
 
     return 
 
-def default_compare_higher_value():
-    return
+def default_compare_higher_value(father_node, child_node,retorno=False):
+    if pqe.get_key(father_node) >= pqe.get_key(child_node):
+        
+        return True
+    return False
 
-def default_compare_lower_value():
-    return
+def default_compare_lower_value(father_node, child_node,retorno=False):
+    if pqe.get_key(father_node) <= pqe.get_key(child_node):
+        return True
+    return False
