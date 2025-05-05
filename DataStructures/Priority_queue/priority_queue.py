@@ -72,17 +72,25 @@ def tiene_hijo(pos,heap):
 def sink(heap,pos):
     if not is_empty(heap):
         func_comp = heap["cmp_function"]
-        
-        while func_comp(padre,hijo1) or func_comp(padre,hijo2) and tiene_hijo(pos,heap):
-            
-                hijo = mayor_prioridad(hijo1,hijo2)
-                temp = padre
-                padre = hijo
-                hijo = temp
-                if hijo == hijo1:
-                    pos *=2
-                elif hijo == hijo2:
-                    pos = (2*pos) + 1
+        padre = heap["elements"]["elements"][(pos)]
+        if tiene_hijo(pos,heap):
+            if 2*pos < heap["size"]:
+                hijo1 = heap["elements"]["elements"][(2*pos)]
+                if (2*pos)+1 < heap["size"]:
+                    hijo2 = heap["elements"]["elements"][(2*pos)+1]
+
+            while func_comp(padre,hijo1) or func_comp(padre,hijo2) and tiene_hijo(pos,heap):
+                    hijo = mayor_prioridad(hijo1,hijo2)
+                    temp = padre
+                    padre = hijo
+                    hijo = temp
+                    if hijo == hijo1:
+                        pos *=2
+                    elif hijo == hijo2:
+                        pos = (2*pos) + 1
+                    padre = heap["elements"]["elements"][(pos)]
+                    hijo1 = heap["elements"]["elements"][(2*pos)]
+                    hijo2 = heap["elements"]["elements"][(2*pos)+1]
             
 
     
