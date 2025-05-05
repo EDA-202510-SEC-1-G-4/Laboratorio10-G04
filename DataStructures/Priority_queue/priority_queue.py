@@ -95,13 +95,15 @@ def sink(heap,pos):
         hijo1,hijo2 = get_hijos(pos,heap)
         while func_comp(padre,hijo1) or func_comp(padre,hijo2) and tiene_hijo(pos,heap):
                 hijo = mayor_prioridad(heap,hijo1,hijo2)
-                temp = padre
-                padre = hijo
-                hijo = temp
                 if hijo == hijo1:
                     pos *=2
                 elif hijo == hijo2:
                     pos = (2*pos) + 1
+                    
+                temp = padre
+                padre = hijo
+                hijo = temp
+                
                 padre = heap["elements"]["elements"][pos]
                 hijo1,hijo2=get_hijos(pos,heap)
     
