@@ -28,7 +28,9 @@ def insert(heap,value,key):
                 'value':value}
         al.add_last(heap['elements'],elem)
         pos = al.size(heap['elements'])
-        heap = swim(heap,pos)
+        heap["size"]+= 1
+        swim(heap,pos)
+        
     return heap
 
 def remove(heap):
@@ -36,8 +38,9 @@ def remove(heap):
         retorno = heap["elements"]["elements"][1]["value"]
         heap["elements"]["elements"][1] = heap["elements"]["elements"][heap["size"]-1]
         al.remove_last(heap["elements"])
-        heap["size"]=-1
+        
         sink(heap,1)
+        heap["size"]=-1
     else:
         retorno = None
     return retorno
@@ -46,7 +49,7 @@ def swim(heap,pos):
     if heap['size'] > 0:
         stop = False
         cmp_function = heap['cmp_function']
-        while not stop or pos//2 == 0:
+        while heap["size"]>pos>0 and not stop or pos//2 == 1:
             elem = heap['elements']['elements'][pos]
             padre = heap['elements']['elements'][pos//2]
             if cmp_function(padre,elem):
@@ -91,7 +94,7 @@ def sink(heap,pos):
         padre = heap["elements"]["elements"][pos]
         hijo1,hijo2 = get_hijos(pos,heap)
         while func_comp(padre,hijo1) or func_comp(padre,hijo2) and tiene_hijo(pos,heap):
-                hijo = mayor_prioridad(hijo1,hijo2)
+                hijo = mayor_prioridad(heap,hijo1,hijo2)
                 temp = padre
                 padre = hijo
                 hijo = temp
