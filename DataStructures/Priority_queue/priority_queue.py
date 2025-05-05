@@ -39,15 +39,13 @@ def swim(heap,pos):
     if heap['size'] > 0:
         stop = False
         cmp_function = heap['cmp_function']
-        while not stop:
+        while not stop or pos//2 == 0:
             elem = heap['elements']['elements'][pos]
             padre = heap['elements']['elements'][pos//2]
             if cmp_function(padre,elem):
                 heap['elements']['elements'][pos//2] = elem
                 heap['elements']['elements'][pos] = padre
                 pos = pos//2
-                if (pos//2) < 1:
-                    stop = True
             else:
                 stop = True
     return heap
