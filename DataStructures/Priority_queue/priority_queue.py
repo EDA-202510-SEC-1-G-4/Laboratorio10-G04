@@ -1,6 +1,6 @@
 from DataStructures.List import array_list as al
 from DataStructures.Priority_queue import index_pq_entry as pqe
-
+from DataStructures.List import array_list as al
 
 def new_heap(is_min_pq=True):
     heap = {'elements':al.new_list(),
@@ -31,8 +31,16 @@ def insert(heap,value,key):
         heap = swim(heap,pos)
     return heap
 
-def remove():
-    return
+def remove(heap):
+    if not is_empty(heap):
+        retorno = heap["elements"]["elements"][1]["value"]
+        heap["elements"]["elements"][1] = heap["elements"]["elements"][heap["size"]-1]
+        al.remove_last(heap["elements"])
+        heap["size"]=-1
+        sink(heap,1)
+    else:
+        retorno = None
+    return retorno
 
 def swim(heap,pos):
     if heap['size'] > 0:
